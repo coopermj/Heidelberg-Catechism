@@ -2,7 +2,7 @@
 %% Questions 1-11, Lord's Days I-IV
 %% Part 1 of the Heidelberg Catechism
 
-\documentclass[11pt]{article}
+\documentclass[18pt]{extarticle}
 
 %% ============================================================
 %% Page Setup - 18x24" poster
@@ -11,10 +11,10 @@
 \usepackage[
     paperwidth=18in,
     paperheight=24in,
-    left=2in,
-    right=2in,
-    top=2in,
-    bottom=1.5in
+    left=1.5in,
+    right=1.5in,
+    top=1.5in,
+    bottom=1.2in
 ]{geometry}
 
 %% ============================================================
@@ -28,6 +28,7 @@
 \usepackage{setspace}
 \usepackage{microtype}
 \usepackage{graphicx}
+\usepackage{multicol}
 
 %% ============================================================
 %% Custom Style Packages (paths relative to compilation directory)
@@ -45,11 +46,12 @@
 \color{inkblack}
 
 %% ============================================================
-%% Adjust spacing for poster fit
+%% Poster-specific typography adjustments
 %% ============================================================
 
-\setstretch{1.15}
+\setstretch{1.1}
 \setlength{\parskip}{0.3em}
+\setlength{\columnsep}{0.6in}
 
 %% ============================================================
 %% Document
@@ -66,34 +68,45 @@
 %% ============================================================
 
 \begin{center}
-    \vspace*{0.2in}
+    \vspace*{0.1in}
 
-    %% Main Title
-    {\titlefont\fontsize{52pt}{58pt}\selectfont The Heidelberg}\\[0.15em]
-    {\titlefont\fontsize{52pt}{58pt}\selectfont Catechism}\\[0.6em]
+    %% Main Title with drop shadow
+    \begin{tikzpicture}
+        \node[opacity=0.3] at (0.06in,-0.06in) {\titlefont\fontsize{84pt}{92pt}\selectfont The Heidelberg};
+        \node at (0,0) {\titlefont\fontsize{84pt}{92pt}\selectfont The Heidelberg};
+    \end{tikzpicture}\\[0.15em]
+    \begin{tikzpicture}
+        \node[opacity=0.3] at (0.06in,-0.06in) {\titlefont\fontsize{84pt}{92pt}\selectfont Catechism};
+        \node at (0,0) {\titlefont\fontsize{84pt}{92pt}\selectfont Catechism};
+    \end{tikzpicture}\\[0.4em]
 
     %% Decorative divider
-    \pgfornament[width=4.5in,color=gold]{75}\\[0.6em]
+    \pgfornament[width=5in,color=gold]{75}\\[0.4em]
 
     %% Part Title
-    {\headerfont\fontsize{28pt}{34pt}\selectfont PART THE FIRST}\\[0.3em]
-    {\headerfont\fontsize{22pt}{28pt}\selectfont\color{guiltprimary} Of Man's Misery}\\[0.4em]
+    {\headerfont\fontsize{32pt}{38pt}\selectfont PART THE FIRST}\\[0.25em]
+    {\headerfont\fontsize{26pt}{32pt}\selectfont\color{guiltprimary} Of Man's Misery}\\[0.35em]
 
-    %% Subtitle
-    {\normalsize Questions 1--11\quad\fleuron[guiltprimary]\quad Lord's Days I--IV}\\[0.3em]
+    %% Subtitle - centered fleuron with equal-width text boxes
+    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 1--11}\quad\fleuron[guiltprimary]\quad\makebox[2.5in][l]{Lord's Days I--IV}}\\[0.25em]
 
     %% Bottom divider
     \pgfornament[width=3in,color=guiltprimary]{80}
 
 \end{center}
 
-\vspace{0.5em}
+\vspace{0.3em}
 
 %% ============================================================
-%% Content
+%% Content in two columns
 %% ============================================================
 
+% Increase body text size (18pt -> 20pt)
+\fontsize{20pt}{24pt}\selectfont
+
+\begin{multicols}{2}
 \input{content/guilt}
+\end{multicols}
 
 %% ============================================================
 %% Footer
@@ -101,11 +114,12 @@
 
 \vfill
 
-\footerornament[gold]
-
 \begin{center}
-    {\small\itshape Composed at Heidelberg}\\[0.15em]
-    {\small\headerfont ANNO DOMINI MDLXIII}
+    \pgfornament[width=2.5in,color=gold]{80}\\[0.6em]
+    {\fontsize{12pt}{16pt}\selectfont\itshape Composed at Heidelberg}\\[0.2em]
+    {\fontsize{14pt}{18pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
 \end{center}
+
+\vspace{0.2in}
 
 \end{document}

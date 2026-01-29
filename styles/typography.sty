@@ -10,6 +10,18 @@
 \RequirePackage{microtype}
 
 %% ============================================================
+%% Widow/Orphan Control
+%% ============================================================
+
+\widowpenalty=10000
+\clubpenalty=10000
+\brokenpenalty=10000
+\predisplaypenalty=10000
+\postdisplaypenalty=10000
+\displaywidowpenalty=10000
+\interlinepenalty=150
+
+%% ============================================================
 %% Font Configuration (requires XeLaTeX/LuaLaTeX)
 %% ============================================================
 
@@ -19,23 +31,25 @@
     Ligatures=TeX
 ]
 
-% Title font - EB Garamond scaled up for elegant titles
-\newfontfamily\titlefont{EB Garamond}[
-    Scale=1.2,
-    Ligatures=TeX
-]
-
-% Header font - EB Garamond Small Caps for elegant classical headers
-\newfontfamily\headerfont{EB Garamond}[
-    Letters=SmallCaps,
-    LetterSpace=8,
+% Title font - Harbour Decor
+\newfontfamily\titlefont{Harbour Decor}[
+    Path=/Users/micahcooper/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/,
+    Extension=.otf,
+    UprightFont=.58300,
     Scale=1.0
 ]
 
-% Question number font - Small caps for hierarchy
-\newfontfamily\questionfont{EB Garamond}[
+% Header font - EB Garamond small caps
+\newfontfamily\headerfont{EB Garamond}[
     Letters=SmallCaps,
-    Scale=0.95
+    LetterSpace=6,
+    Scale=1.0
+]
+
+% Small caps font for labels
+\newfontfamily\scfont{EB Garamond}[
+    Letters=SmallCaps,
+    Scale=0.9
 ]
 
 % Initials font for illuminated drop caps
@@ -47,33 +61,11 @@
 \newcommand{\questiontextfont}{\itshape}
 
 %% ============================================================
-%% Drop Cap / Illuminated Initial Configuration
+%% Drop Cap Configuration
 %% ============================================================
 
-% Standard drop cap for Lord's Day starts
-\renewcommand{\LettrineTextFont}{\scshape}
-\setcounter{DefaultLines}{3}
-
-% Illuminated initial using EB Garamond Initials
-\newcommand{\illuminatedinitial}[3][gold]{%
-    \lettrine[
-        lines=4,
-        lhang=0.1,
-        loversize=0.1,
-        findent=0.3em,
-        nindent=0em
-    ]{\textcolor{#1}{\initialsfont #2}}{#3}%
-}
-
-% Simple drop cap (non-illuminated)
-\newcommand{\dropcap}[2]{%
-    \lettrine[
-        lines=3,
-        lhang=0.1,
-        findent=0.2em,
-        nindent=0em
-    ]{#1}{#2}%
-}
+\renewcommand{\LettrineTextFont}{}
+\setcounter{DefaultLines}{2}
 
 %% ============================================================
 %% Content Macros
@@ -82,54 +74,41 @@
 % Question counter
 \newcounter{questionnum}
 
-% Lord's Day header
+% Counter for uppercase Roman numerals
+\newcounter{lordsdaynum}
+
+% Lord's Day header - Title Case with small caps, uppercase Roman
 % Usage: \lordsday{1}
 \newcommand{\lordsday}[1]{%
-    \vspace{1em}%
-    \begin{center}%
-        {\headerfont\large LORD'S DAY \MakeUppercase{\romannumeral #1}}%
-    \end{center}%
-    \vspace{0.5em}%
-}
-
-% Lord's Day header with ornament (requires ornamental-borders loaded)
-\newcommand{\lordsdayornament}[2][gold]{%
-    \vspace{1.5em}%
-    \begin{center}%
-        {\headerfont\Large LORD'S DAY \MakeUppercase{\romannumeral #2}}%
-        \par\vspace{0.3em}%
-        \pgfornament[width=2in,color=#1]{75}%
-    \end{center}%
+    \setcounter{lordsdaynum}{#1}%
+    \nopagebreak[4]%
     \vspace{0.8em}%
+    \begin{center}%
+        \nopagebreak[4]%
+        {\headerfont\fontsize{20pt}{24pt}\selectfont Lord's Day \Roman{lordsdaynum}}%
+    \end{center}%
+    \nopagebreak[4]%
+    \vspace{0.4em}%
+    \nopagebreak[4]%
 }
 
-% Question and Answer formatting
+% Question and Answer formatting with drop cap Q and A
 % Usage: \catechismqa{1}{Question text}{Answer text}
 \newcommand{\catechismqa}[3]{%
     \setcounter{questionnum}{#1}%
-    \par\vspace{0.6em}%
-    % Question
-    \noindent{\questionfont Q.~#1.}~%
+    \par\vspace{0.4em}%
+    \nopagebreak[4]%
+    % Question with drop cap Q and hanging indent
+    \noindent\hspace{-0.4em}%
+    \makebox[0pt][r]{\raisebox{-0.15em}{\initialsfont\fontsize{36pt}{36pt}\selectfont\color{gold}Q}\hspace{0.25em}}%
+    {\scfont #1.}\hspace{0.3em}%
     {\questiontextfont #2}%
     \par\vspace{0.2em}%
-    % Answer
-    \noindent{\questionfont A.}~%
+    \nopagebreak[3]%
+    % Answer with drop cap A and hanging indent
+    \noindent\hspace{-0.4em}%
+    \makebox[0pt][r]{\raisebox{-0.15em}{\initialsfont\fontsize{36pt}{36pt}\selectfont\color{gold}A}\hspace{0.3em}}%
     #3%
-    \par%
-}
-
-% Question and Answer with illuminated initial (for section openings)
-% Usage: \catechismqaillum{1}{W}{hat is thy...}{Answer text}
-\newcommand{\catechismqaillum}[4]{%
-    \setcounter{questionnum}{#1}%
-    \par\vspace{1em}%
-    % Question with illuminated initial
-    \noindent{\questionfont Q.~#1.}~%
-    {\questiontextfont\illuminatedinitial{#2}{#3}}%
-    \par\vspace{0.3em}%
-    % Answer
-    \noindent{\questionfont A.}~%
-    #4%
     \par%
 }
 
@@ -152,10 +131,10 @@
 %% ============================================================
 
 % Generous line spacing for poster readability
-\setstretch{1.25}
+\setstretch{1.15}
 
 % Paragraph settings
-\setlength{\parindent}{1.5em}
-\setlength{\parskip}{0.4em plus 0.2em minus 0.1em}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.2em plus 0.1em minus 0.05em}
 
 \endinput
