@@ -23,27 +23,22 @@ gratitude: setup output/poster-gratitude.pdf
 
 # Guilt poster (Part 1: Of Man's Misery, Q1-11)
 output/poster-guilt.pdf: posters/poster-guilt.tex content/guilt.tex styles/*.sty
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-guilt.tex
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-guilt.tex
-	@mv posters/output/poster-guilt.pdf output/
+	$(LATEX) $(LATEXFLAGS) posters/poster-guilt.tex
+	$(LATEX) $(LATEXFLAGS) posters/poster-guilt.tex
 
 # Grace poster (Part 2: Of Man's Redemption, Q12-85)
 output/poster-grace.pdf: posters/poster-grace.tex content/grace.tex styles/*.sty
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-grace.tex
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-grace.tex
-	@mv posters/output/poster-guilt.pdf output/ 2>/dev/null || true
-	@mv posters/output/poster-grace.pdf output/
+	$(LATEX) $(LATEXFLAGS) posters/poster-grace.tex
+	$(LATEX) $(LATEXFLAGS) posters/poster-grace.tex
 
 # Gratitude poster (Part 3: Of Thankfulness, Q86-129)
 output/poster-gratitude.pdf: posters/poster-gratitude.tex content/gratitude.tex styles/*.sty
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-gratitude.tex
-	cd posters && $(LATEX) $(LATEXFLAGS) poster-gratitude.tex
-	@mv posters/output/poster-gratitude.pdf output/
+	$(LATEX) $(LATEXFLAGS) posters/poster-gratitude.tex
+	$(LATEX) $(LATEXFLAGS) posters/poster-gratitude.tex
 
 # Clean auxiliary files
 clean:
 	rm -rf output/*.aux output/*.log output/*.out output/*.synctex.gz
-	rm -rf posters/output
 
 # Clean everything including PDFs
 distclean: clean

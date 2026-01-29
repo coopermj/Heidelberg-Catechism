@@ -19,22 +19,28 @@
     Ligatures=TeX
 ]
 
-% Title font - Blackletter for medieval aesthetic
-% UnifrakturMaguntia provides beautiful Fraktur script
-\newfontfamily\titlefont{UnifrakturMaguntia}[
-    Scale=1.0
+% Title font - EB Garamond scaled up for elegant titles
+\newfontfamily\titlefont{EB Garamond}[
+    Scale=1.2,
+    Ligatures=TeX
 ]
 
-% Header font - Cinzel for elegant classical headers
-\newfontfamily\headerfont{Cinzel}[
-    LetterSpace=5,
-    Numbers=Lining
+% Header font - EB Garamond Small Caps for elegant classical headers
+\newfontfamily\headerfont{EB Garamond}[
+    Letters=SmallCaps,
+    LetterSpace=8,
+    Scale=1.0
 ]
 
 % Question number font - Small caps for hierarchy
 \newfontfamily\questionfont{EB Garamond}[
     Letters=SmallCaps,
-    Numbers=Lining
+    Scale=0.95
+]
+
+% Initials font for illuminated drop caps
+\newfontfamily\initialsfont{EB Garamond Initials}[
+    Scale=1.0
 ]
 
 % Question text styling
@@ -45,19 +51,28 @@
 %% ============================================================
 
 % Standard drop cap for Lord's Day starts
-\renewcommand{\LettsDefaultDepth}{0}
 \renewcommand{\LettrineTextFont}{\scshape}
 \setcounter{DefaultLines}{3}
 
-% Illuminated initial for section opening
+% Illuminated initial using EB Garamond Initials
 \newcommand{\illuminatedinitial}[3][gold]{%
     \lettrine[
         lines=4,
-        lhang=0.15,
-        loversize=0.15,
-        findent=0.5em,
+        lhang=0.1,
+        loversize=0.1,
+        findent=0.3em,
         nindent=0em
-    ]{\textcolor{#1}{#2}}{#3}%
+    ]{\textcolor{#1}{\initialsfont #2}}{#3}%
+}
+
+% Simple drop cap (non-illuminated)
+\newcommand{\dropcap}[2]{%
+    \lettrine[
+        lines=3,
+        lhang=0.1,
+        findent=0.2em,
+        nindent=0em
+    ]{#1}{#2}%
 }
 
 %% ============================================================
@@ -70,11 +85,11 @@
 % Lord's Day header
 % Usage: \lordsday{1}
 \newcommand{\lordsday}[1]{%
-    \vspace{1.5em}%
+    \vspace{1em}%
     \begin{center}%
-        {\headerfont\Large LORD'S DAY \MakeUppercase{\romannumeral #1}}%
+        {\headerfont\large LORD'S DAY \MakeUppercase{\romannumeral #1}}%
     \end{center}%
-    \vspace{0.8em}%
+    \vspace{0.5em}%
 }
 
 % Lord's Day header with ornament (requires ornamental-borders loaded)
@@ -92,11 +107,11 @@
 % Usage: \catechismqa{1}{Question text}{Answer text}
 \newcommand{\catechismqa}[3]{%
     \setcounter{questionnum}{#1}%
-    \par\vspace{0.8em}%
+    \par\vspace{0.6em}%
     % Question
     \noindent{\questionfont Q.~#1.}~%
     {\questiontextfont #2}%
-    \par\vspace{0.3em}%
+    \par\vspace{0.2em}%
     % Answer
     \noindent{\questionfont A.}~%
     #3%

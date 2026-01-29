@@ -1,0 +1,111 @@
+%% poster-guilt.tex - Poster 1: Of Man's Misery (Guilt)
+%% Questions 1-11, Lord's Days I-IV
+%% Part 1 of the Heidelberg Catechism
+
+\documentclass[11pt]{article}
+
+%% ============================================================
+%% Page Setup - 18x24" poster
+%% ============================================================
+
+\usepackage[
+    paperwidth=18in,
+    paperheight=24in,
+    left=2in,
+    right=2in,
+    top=2in,
+    bottom=1.5in
+]{geometry}
+
+%% ============================================================
+%% Core Packages
+%% ============================================================
+
+\usepackage{fontspec}
+\usepackage{lettrine}
+\usepackage{tikz}
+\usepackage{pgfornament}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{graphicx}
+
+%% ============================================================
+%% Custom Style Packages (paths relative to compilation directory)
+%% ============================================================
+
+\usepackage{styles/colors}
+\usepackage{styles/typography}
+\usepackage{styles/ornamental-borders}
+
+%% ============================================================
+%% Page Background
+%% ============================================================
+
+\pagecolor{parchment}
+\color{inkblack}
+
+%% ============================================================
+%% Adjust spacing for poster fit
+%% ============================================================
+
+\setstretch{1.15}
+\setlength{\parskip}{0.3em}
+
+%% ============================================================
+%% Document
+%% ============================================================
+
+\begin{document}
+\thispagestyle{empty}
+
+%% Draw ornamental border in burgundy (Guilt section color)
+\illuminatedborder[guiltprimary]
+
+%% ============================================================
+%% Title Block
+%% ============================================================
+
+\begin{center}
+    \vspace*{0.2in}
+
+    %% Main Title
+    {\titlefont\fontsize{52pt}{58pt}\selectfont The Heidelberg}\\[0.15em]
+    {\titlefont\fontsize{52pt}{58pt}\selectfont Catechism}\\[0.6em]
+
+    %% Decorative divider
+    \pgfornament[width=4.5in,color=gold]{75}\\[0.6em]
+
+    %% Part Title
+    {\headerfont\fontsize{28pt}{34pt}\selectfont PART THE FIRST}\\[0.3em]
+    {\headerfont\fontsize{22pt}{28pt}\selectfont\color{guiltprimary} Of Man's Misery}\\[0.4em]
+
+    %% Subtitle
+    {\normalsize Questions 1--11\quad\fleuron[guiltprimary]\quad Lord's Days I--IV}\\[0.3em]
+
+    %% Bottom divider
+    \pgfornament[width=3in,color=guiltprimary]{80}
+
+\end{center}
+
+\vspace{0.5em}
+
+%% ============================================================
+%% Content
+%% ============================================================
+
+\input{content/guilt}
+
+%% ============================================================
+%% Footer
+%% ============================================================
+
+\vfill
+
+\footerornament[gold]
+
+\begin{center}
+    {\small\itshape Composed at Heidelberg}\\[0.15em]
+    {\small\headerfont ANNO DOMINI MDLXIII}
+\end{center}
+
+\end{document}
