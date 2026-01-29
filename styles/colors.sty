@@ -1,0 +1,85 @@
+%% colors.sty - Illuminated Manuscript Color Palette
+%% Heidelberg Catechism Posters
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{colors}[2024/01/01 Illuminated Catechism Colors]
+
+\RequirePackage{xcolor}
+
+%% ============================================================
+%% Primary Illumination Colors (inspired by medieval manuscripts)
+%% ============================================================
+
+% Gold - for illuminated details and accents
+\definecolor{gold}{RGB}{212,175,55}
+\definecolor{goldlight}{RGB}{245,215,110}
+\definecolor{golddark}{RGB}{170,140,45}
+
+% Deep reds and burgundy
+\definecolor{burgundy}{RGB}{128,0,32}
+\definecolor{vermilion}{RGB}{227,66,52}
+\definecolor{crimson}{RGB}{150,0,24}
+
+% Blues (lapis lazuli inspired)
+\definecolor{ultramarine}{RGB}{18,10,143}
+\definecolor{royalblue}{RGB}{65,105,225}
+\definecolor{azureblue}{RGB}{49,92,168}
+
+% Greens
+\definecolor{forestgreen}{RGB}{34,139,34}
+\definecolor{huntergreen}{RGB}{53,94,59}
+\definecolor{mossgreen}{RGB}{85,107,47}
+
+% Earth tones
+\definecolor{siennaearth}{RGB}{160,82,45}
+\definecolor{umber}{RGB}{99,81,71}
+
+%% ============================================================
+%% Background and Text Colors
+%% ============================================================
+
+% Parchment backgrounds
+\definecolor{parchment}{RGB}{252,248,237}
+\definecolor{vellum}{RGB}{245,240,225}
+\definecolor{oldpaper}{RGB}{240,230,210}
+
+% Ink colors
+\definecolor{inkblack}{RGB}{28,28,28}
+\definecolor{sepia}{RGB}{112,66,20}
+\definecolor{brownink}{RGB}{89,60,31}
+
+%% ============================================================
+%% Section-Specific Accent Colors
+%% ============================================================
+
+% Guilt (Part 1: Of Man's Misery) - Deep burgundy
+\definecolor{guiltprimary}{RGB}{128,0,32}
+\definecolor{guiltsecondary}{RGB}{100,0,25}
+\definecolor{guiltaccent}{RGB}{150,0,24}
+
+% Grace (Part 2: Of Man's Redemption) - Ultramarine blue
+\definecolor{graceprimary}{RGB}{18,10,143}
+\definecolor{gracesecondary}{RGB}{35,25,120}
+\definecolor{graceaccent}{RGB}{49,92,168}
+
+% Gratitude (Part 3: Of Thankfulness) - Forest green
+\definecolor{gratitudeprimary}{RGB}{34,139,34}
+\definecolor{gratitudesecondary}{RGB}{25,100,25}
+\definecolor{gratitudeaccent}{RGB}{53,94,59}
+
+%% ============================================================
+%% Color Commands
+%% ============================================================
+
+% Set default text color
+\newcommand{\settextcolor}{\color{inkblack}}
+
+% Gold text for special elements
+\newcommand{\goldtext}[1]{{\color{gold}#1}}
+
+% Section-specific coloring commands
+\newcommand{\guiltcolor}[1]{{\color{guiltprimary}#1}}
+\newcommand{\gracecolor}[1]{{\color{graceprimary}#1}}
+\newcommand{\gratitudecolor}[1]{{\color{gratitudeprimary}#1}}
+
+\endinput

@@ -1,0 +1,165 @@
+%% ornamental-borders.sty - Decorative Border Definitions
+%% Heidelberg Catechism Posters
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{ornamental-borders}[2024/01/01 Illuminated Catechism Borders]
+
+\RequirePackage{tikz}
+\RequirePackage{pgfornament}
+\usetikzlibrary{calc}
+
+%% ============================================================
+%% Full Page Ornamental Border
+%% ============================================================
+
+% Main illuminated border command
+% Usage: \illuminatedborder[color]
+\newcommand{\illuminatedborder}[1][gold]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Calculate border coordinates with inset from page edges
+        \coordinate (bordertopleft) at ($(current page.north west) + (0.6in,-0.6in)$);
+        \coordinate (borderbotright) at ($(current page.south east) + (-0.6in,0.6in)$);
+        \coordinate (bordertopright) at ($(current page.north east) + (-0.6in,-0.6in)$);
+        \coordinate (borderbotleft) at ($(current page.south west) + (0.6in,0.6in)$);
+
+        % Corner ornaments (pgfornament 61 is an elegant corner piece)
+        % Top-left corner
+        \node[anchor=north west] at (bordertopleft)
+            {\pgfornament[width=1.8in,color=#1]{61}};
+        % Top-right corner (vertical mirror)
+        \node[anchor=north east] at (bordertopright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=v]{61}};
+        % Bottom-left corner (horizontal mirror)
+        \node[anchor=south west] at (borderbotleft)
+            {\pgfornament[width=1.8in,color=#1,symmetry=h]{61}};
+        % Bottom-right corner (central/both mirror)
+        \node[anchor=south east] at (borderbotright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=c]{61}};
+
+        % Top border ornament (centered)
+        \node at ($(bordertopleft)!0.5!(bordertopright) + (0,-0.3in)$)
+            {\pgfornament[width=5in,color=#1]{75}};
+
+        % Bottom border ornament (centered)
+        \node at ($(borderbotleft)!0.5!(borderbotright) + (0,0.3in)$)
+            {\pgfornament[width=5in,color=#1]{75}};
+
+        % Side decorative lines
+        \draw[#1,line width=1.5pt]
+            ($(bordertopleft) + (0.7in,-1.8in)$) --
+            ($(borderbotleft) + (0.7in,1.8in)$);
+        \draw[#1,line width=1.5pt]
+            ($(bordertopright) + (-0.7in,-1.8in)$) --
+            ($(borderbotright) + (-0.7in,1.8in)$);
+    \end{tikzpicture}%
+}
+
+%% ============================================================
+%% Alternative Border Styles
+%% ============================================================
+
+% Simpler border with just corners
+% Usage: \simpleborder[color]
+\newcommand{\simpleborder}[1][gold]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \coordinate (bordertopleft) at ($(current page.north west) + (0.5in,-0.5in)$);
+        \coordinate (borderbotright) at ($(current page.south east) + (-0.5in,0.5in)$);
+        \coordinate (bordertopright) at ($(current page.north east) + (-0.5in,-0.5in)$);
+        \coordinate (borderbotleft) at ($(current page.south west) + (0.5in,0.5in)$);
+
+        % Corner ornaments only
+        \node[anchor=north west] at (bordertopleft)
+            {\pgfornament[width=1.2in,color=#1]{63}};
+        \node[anchor=north east] at (bordertopright)
+            {\pgfornament[width=1.2in,color=#1,symmetry=v]{63}};
+        \node[anchor=south west] at (borderbotleft)
+            {\pgfornament[width=1.2in,color=#1,symmetry=h]{63}};
+        \node[anchor=south east] at (borderbotright)
+            {\pgfornament[width=1.2in,color=#1,symmetry=c]{63}};
+    \end{tikzpicture}%
+}
+
+% Elaborate border with additional midpoint ornaments
+% Usage: \elaborateborder[color]
+\newcommand{\elaborateborder}[1][gold]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \coordinate (bordertopleft) at ($(current page.north west) + (0.6in,-0.6in)$);
+        \coordinate (borderbotright) at ($(current page.south east) + (-0.6in,0.6in)$);
+        \coordinate (bordertopright) at ($(current page.north east) + (-0.6in,-0.6in)$);
+        \coordinate (borderbotleft) at ($(current page.south west) + (0.6in,0.6in)$);
+
+        % Corner ornaments
+        \node[anchor=north west] at (bordertopleft)
+            {\pgfornament[width=2in,color=#1]{61}};
+        \node[anchor=north east] at (bordertopright)
+            {\pgfornament[width=2in,color=#1,symmetry=v]{61}};
+        \node[anchor=south west] at (borderbotleft)
+            {\pgfornament[width=2in,color=#1,symmetry=h]{61}};
+        \node[anchor=south east] at (borderbotright)
+            {\pgfornament[width=2in,color=#1,symmetry=c]{61}};
+
+        % Top and bottom borders
+        \node at ($(bordertopleft)!0.5!(bordertopright) + (0,-0.4in)$)
+            {\pgfornament[width=6in,color=#1]{75}};
+        \node at ($(borderbotleft)!0.5!(borderbotright) + (0,0.4in)$)
+            {\pgfornament[width=6in,color=#1]{75}};
+
+        % Side midpoint ornaments
+        \node at ($(bordertopleft)!0.5!(borderbotleft) + (0.3in,0)$)
+            {\pgfornament[width=0.8in,color=#1,angle=90]{75}};
+        \node at ($(bordertopright)!0.5!(borderbotright) + (-0.3in,0)$)
+            {\pgfornament[width=0.8in,color=#1,angle=90]{75}};
+
+        % Decorative side lines
+        \draw[#1,line width=1.5pt]
+            ($(bordertopleft) + (0.8in,-2in)$) --
+            ($(bordertopleft)!0.5!(borderbotleft) + (0.8in,0.6in)$);
+        \draw[#1,line width=1.5pt]
+            ($(bordertopleft)!0.5!(borderbotleft) + (0.8in,-0.6in)$) --
+            ($(borderbotleft) + (0.8in,2in)$);
+        \draw[#1,line width=1.5pt]
+            ($(bordertopright) + (-0.8in,-2in)$) --
+            ($(bordertopright)!0.5!(borderbotright) + (-0.8in,0.6in)$);
+        \draw[#1,line width=1.5pt]
+            ($(bordertopright)!0.5!(borderbotright) + (-0.8in,-0.6in)$) --
+            ($(borderbotright) + (-0.8in,2in)$);
+    \end{tikzpicture}%
+}
+
+%% ============================================================
+%% Decorative Dividers and Ornaments
+%% ============================================================
+
+% Header ornament
+% Usage: \headerornament[color]
+\newcommand{\headerornament}[1][burgundy]{%
+    \begin{center}%
+        \pgfornament[width=3in,color=#1]{88}%
+    \end{center}%
+}
+
+% Footer ornament
+% Usage: \footerornament[color]
+\newcommand{\footerornament}[1][gold]{%
+    \begin{center}%
+        \pgfornament[width=2in,color=#1]{80}%
+    \end{center}%
+}
+
+% Section divider with ornament
+% Usage: \ornamentaldivider[color]
+\newcommand{\ornamentaldivider}[1][gold]{%
+    \vspace{0.5em}%
+    \begin{center}%
+        \pgfornament[width=1.5in,color=#1]{80}%
+    \end{center}%
+    \vspace{0.5em}%
+}
+
+% Fleuron (small decorative element)
+% Usage: \fleuron[color]
+\newcommand{\fleuron}[1][gold]{%
+    \pgfornament[width=0.4in,color=#1]{4}%
+}
+
+\endinput

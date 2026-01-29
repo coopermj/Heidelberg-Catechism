@@ -1,0 +1,146 @@
+%% typography.sty - Typography and Content Macros
+%% Heidelberg Catechism Posters
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{typography}[2024/01/01 Illuminated Catechism Typography]
+
+\RequirePackage{fontspec}
+\RequirePackage{lettrine}
+\RequirePackage{setspace}
+\RequirePackage{microtype}
+
+%% ============================================================
+%% Font Configuration (requires XeLaTeX/LuaLaTeX)
+%% ============================================================
+
+% Main body font - EB Garamond for readability with historical character
+\setmainfont{EB Garamond}[
+    Numbers=OldStyle,
+    Ligatures=TeX
+]
+
+% Title font - Blackletter for medieval aesthetic
+% UnifrakturMaguntia provides beautiful Fraktur script
+\newfontfamily\titlefont{UnifrakturMaguntia}[
+    Scale=1.0
+]
+
+% Header font - Cinzel for elegant classical headers
+\newfontfamily\headerfont{Cinzel}[
+    LetterSpace=5,
+    Numbers=Lining
+]
+
+% Question number font - Small caps for hierarchy
+\newfontfamily\questionfont{EB Garamond}[
+    Letters=SmallCaps,
+    Numbers=Lining
+]
+
+% Question text styling
+\newcommand{\questiontextfont}{\itshape}
+
+%% ============================================================
+%% Drop Cap / Illuminated Initial Configuration
+%% ============================================================
+
+% Standard drop cap for Lord's Day starts
+\renewcommand{\LettsDefaultDepth}{0}
+\renewcommand{\LettrineTextFont}{\scshape}
+\setcounter{DefaultLines}{3}
+
+% Illuminated initial for section opening
+\newcommand{\illuminatedinitial}[3][gold]{%
+    \lettrine[
+        lines=4,
+        lhang=0.15,
+        loversize=0.15,
+        findent=0.5em,
+        nindent=0em
+    ]{\textcolor{#1}{#2}}{#3}%
+}
+
+%% ============================================================
+%% Content Macros
+%% ============================================================
+
+% Question counter
+\newcounter{questionnum}
+
+% Lord's Day header
+% Usage: \lordsday{1}
+\newcommand{\lordsday}[1]{%
+    \vspace{1.5em}%
+    \begin{center}%
+        {\headerfont\Large LORD'S DAY \MakeUppercase{\romannumeral #1}}%
+    \end{center}%
+    \vspace{0.8em}%
+}
+
+% Lord's Day header with ornament (requires ornamental-borders loaded)
+\newcommand{\lordsdayornament}[2][gold]{%
+    \vspace{1.5em}%
+    \begin{center}%
+        {\headerfont\Large LORD'S DAY \MakeUppercase{\romannumeral #2}}%
+        \par\vspace{0.3em}%
+        \pgfornament[width=2in,color=#1]{75}%
+    \end{center}%
+    \vspace{0.8em}%
+}
+
+% Question and Answer formatting
+% Usage: \catechismqa{1}{Question text}{Answer text}
+\newcommand{\catechismqa}[3]{%
+    \setcounter{questionnum}{#1}%
+    \par\vspace{0.8em}%
+    % Question
+    \noindent{\questionfont Q.~#1.}~%
+    {\questiontextfont #2}%
+    \par\vspace{0.3em}%
+    % Answer
+    \noindent{\questionfont A.}~%
+    #3%
+    \par%
+}
+
+% Question and Answer with illuminated initial (for section openings)
+% Usage: \catechismqaillum{1}{W}{hat is thy...}{Answer text}
+\newcommand{\catechismqaillum}[4]{%
+    \setcounter{questionnum}{#1}%
+    \par\vspace{1em}%
+    % Question with illuminated initial
+    \noindent{\questionfont Q.~#1.}~%
+    {\questiontextfont\illuminatedinitial{#2}{#3}}%
+    \par\vspace{0.3em}%
+    % Answer
+    \noindent{\questionfont A.}~%
+    #4%
+    \par%
+}
+
+% Scripture reference formatting
+\newcommand{\scripture}[1]{%
+    {\footnotesize\itshape #1}%
+}
+
+% Section divider (simple)
+\newcommand{\sectiondivider}{%
+    \vspace{0.5em}%
+    \begin{center}%
+        \rule{2in}{0.4pt}%
+    \end{center}%
+    \vspace{0.5em}%
+}
+
+%% ============================================================
+%% Text Spacing for Large Format
+%% ============================================================
+
+% Generous line spacing for poster readability
+\setstretch{1.25}
+
+% Paragraph settings
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.4em plus 0.2em minus 0.1em}
+
+\endinput
