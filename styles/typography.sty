@@ -27,6 +27,12 @@
 
 % Main body font - EB Garamond for readability with historical character
 \setmainfont{EB Garamond}[
+    Path=/Users/micahcooper/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/,
+    Extension=.otf,
+    UprightFont=.16179,
+    ItalicFont=.41000,
+    BoldFont=.41005,
+    BoldItalicFont=.41006,
     Numbers=OldStyle,
     Ligatures=TeX
 ]
@@ -36,6 +42,14 @@
     Path=/Users/micahcooper/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/,
     Extension=.otf,
     UprightFont=.58300,
+    Scale=1.0
+]
+
+% Title shadow font - Harbour Rough
+\newfontfamily\titleshadowfont{Harbour Rough}[
+    Path=/Users/micahcooper/Library/Application Support/Adobe/CoreSync/plugins/livetype/.r/,
+    Extension=.otf,
+    UprightFont=.58299,
     Scale=1.0
 ]
 
@@ -82,33 +96,23 @@
 \newcommand{\lordsday}[1]{%
     \setcounter{lordsdaynum}{#1}%
     \nopagebreak[4]%
-    \vspace{0.8em}%
-    \begin{center}%
-        \nopagebreak[4]%
-        {\headerfont\fontsize{20pt}{24pt}\selectfont Lord's Day \Roman{lordsdaynum}}%
-    \end{center}%
-    \nopagebreak[4]%
-    \vspace{0.4em}%
+    {\centering\headerfont\fontsize{20pt}{24pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
     \nopagebreak[4]%
 }
 
-% Question and Answer formatting with drop cap Q and A
+% Question and Answer formatting
 % Usage: \catechismqa{1}{Question text}{Answer text}
 \newcommand{\catechismqa}[3]{%
     \setcounter{questionnum}{#1}%
-    \par\vspace{0.4em}%
+    \par\vspace*{0.35em}%
     \nopagebreak[4]%
-    % Question with drop cap Q and hanging indent
-    \noindent\hspace{-0.4em}%
-    \makebox[0pt][r]{\raisebox{-0.15em}{\initialsfont\fontsize{36pt}{36pt}\selectfont\color{gold}Q}\hspace{0.25em}}%
-    {\scfont #1.}\hspace{0.3em}%
-    {\questiontextfont #2}%
-    \par\vspace{0.2em}%
+    % Question number and bold text, 4pt larger than body
+    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.3em}}%
+    {\fontsize{24pt}{28pt}\selectfont\bfseries #2}%
+    \par\vspace{0.15em}%
     \nopagebreak[3]%
-    % Answer with drop cap A and hanging indent
-    \noindent\hspace{-0.4em}%
-    \makebox[0pt][r]{\raisebox{-0.15em}{\initialsfont\fontsize{36pt}{36pt}\selectfont\color{gold}A}\hspace{0.3em}}%
-    #3%
+    % Answer
+    \noindent #3%
     \par%
 }
 
