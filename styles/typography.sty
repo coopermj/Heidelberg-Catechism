@@ -7,7 +7,44 @@
 \RequirePackage{fontspec}
 \RequirePackage{lettrine}
 \RequirePackage{setspace}
-\RequirePackage{microtype}
+
+%% ============================================================
+%% Microtype Configuration - Optical Typography
+%% ============================================================
+
+% XeTeX-compatible microtype features:
+% - protrusion: optical margin alignment (punctuation hangs into margins)
+% Note: expansion, spacing, and kerning require pdfTeX
+\RequirePackage[
+    protrusion=true,
+    expansion=false,
+    tracking=false,
+    kerning=false,
+    spacing=false
+]{microtype}
+
+% Protrusion settings for punctuation (optical margins)
+% Values are thousandths of an em: {left, right}
+\SetProtrusion{encoding={*}, family={*}}{
+    {,}={,500},
+    {.}={,700},
+    {:}={,500},
+    {;}={,500},
+    {!}={,300},
+    {?}={,300},
+    {-}={,700},
+    {\textendash}={,500},
+    {\textemdash}={,300},
+    {'}={700,500},
+    {"}={500,300},
+    {`}={700,},
+    {``}={500,},
+    {''}={,500},
+    {"}={500,300},
+    {"}={,500},
+    {'}={700,},
+    {'}={,700}
+}
 
 %% ============================================================
 %% Widow/Orphan Control
