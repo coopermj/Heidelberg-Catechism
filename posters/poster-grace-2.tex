@@ -1,8 +1,8 @@
-%% poster-grace-2.tex - Poster 2b: Of Man's Redemption (God the Holy Spirit)
-%% Questions 53-85, Lord's Days XX-XXXI
+%% poster-grace-2.tex - Poster 2b: Of Man's Redemption (Christ's Work)
+%% Questions 33-52, Lord's Days XIII-XIX
 %% Part 2b of the Heidelberg Catechism
 
-\documentclass[10pt]{extarticle}
+\documentclass[14pt]{extarticle}
 
 %% ============================================================
 %% Page Setup - 18x24" poster
@@ -11,10 +11,10 @@
 \usepackage[
     paperwidth=18in,
     paperheight=24in,
-    left=1.2in,
-    right=1.2in,
-    top=1.1in,
-    bottom=0.9in
+    left=1.3in,
+    right=1.3in,
+    top=1.3in,
+    bottom=1.0in
 ]{geometry}
 
 %% ============================================================
@@ -49,19 +49,19 @@
 %% Poster-specific typography adjustments
 %% ============================================================
 
-\setstretch{1.0}
-\setlength{\parskip}{0.15em}
-\setlength{\columnsep}{0.45in}
+\setstretch{1.05}
+\setlength{\parskip}{0.2em}
+\setlength{\columnsep}{0.5in}
 
-%% Override catechismqa for this poster size
+%% Override catechismqa for larger poster text
 \renewcommand{\catechismqa}[3]{%
     \setcounter{questionnum}{#1}%
-    \par\vspace*{0.18em}%
+    \par\vspace*{0.25em}%
     \nopagebreak[4]%
     % Question number and bold text
-    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.15em}}%
-    {\fontsize{12pt}{13pt}\selectfont\bfseries #2}%
-    \par\vspace{0.08em}%
+    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.2em}}%
+    {\fontsize{17pt}{19pt}\selectfont\bfseries #2}%
+    \par\vspace{0.1em}%
     \nopagebreak[3]%
     % Answer
     \noindent #3%
@@ -72,7 +72,7 @@
 \renewcommand{\lordsday}[1]{%
     \setcounter{lordsdaynum}{#1}%
     \nopagebreak[4]%
-    {\centering\headerfont\fontsize{12pt}{13pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
+    {\centering\headerfont\fontsize{15pt}{17pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
     \nopagebreak[4]%
 }
 
@@ -91,42 +91,42 @@
 %% ============================================================
 
 \begin{center}
-    \vspace*{0.05in}
+    \vspace*{0.1in}
 
     %% Main Title with drop shadow
     \begin{tikzpicture}
-        \node[opacity=0.25] at (0.04in,-0.04in) {\titleshadowfont\fontsize{66pt}{72pt}\selectfont The Heidelberg};
-        \node at (0,0) {\titlefont\fontsize{66pt}{72pt}\selectfont The Heidelberg};
-    \end{tikzpicture}\\[0.1em]
+        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{76pt}{84pt}\selectfont The Heidelberg};
+        \node at (0,0) {\titlefont\fontsize{76pt}{84pt}\selectfont The Heidelberg};
+    \end{tikzpicture}\\[0.12em]
     \begin{tikzpicture}
-        \node[opacity=0.25] at (0.04in,-0.04in) {\titleshadowfont\fontsize{66pt}{72pt}\selectfont Catechism};
-        \node at (0,0) {\titlefont\fontsize{66pt}{72pt}\selectfont Catechism};
-    \end{tikzpicture}\\[0.3em]
+        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{76pt}{84pt}\selectfont Catechism};
+        \node at (0,0) {\titlefont\fontsize{76pt}{84pt}\selectfont Catechism};
+    \end{tikzpicture}\\[0.35em]
 
     %% Decorative divider
-    \pgfornament[width=4.5in,color=gold]{75}\\[0.3em]
+    \pgfornament[width=4.5in,color=gold]{75}\\[0.35em]
 
     %% Part Title
-    {\headerfont\fontsize{26pt}{30pt}\selectfont PART THE SECOND}\\[0.15em]
-    {\headerfont\fontsize{22pt}{26pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
-    {\fontsize{14pt}{16pt}\selectfont\itshape God the Holy Spirit}\\[0.25em]
+    {\headerfont\fontsize{28pt}{34pt}\selectfont PART THE SECOND}\\[0.2em]
+    {\headerfont\fontsize{24pt}{28pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
+    {\fontsize{16pt}{18pt}\selectfont\itshape Christ's Work}\\[0.3em]
 
     %% Subtitle - centered fleuron with equal-width text boxes
-    {\fontsize{13pt}{16pt}\selectfont\makebox[2.2in][r]{Questions 53--85}\quad\fleuron[graceprimary]\quad\makebox[2.2in][l]{Lord's Days XX--XXXI}}\\[0.15em]
+    {\fontsize{14pt}{17pt}\selectfont\makebox[2.3in][r]{Questions 33--52}\quad\fleuron[graceprimary]\quad\makebox[2.3in][l]{Lord's Days XIII--XIX}}\\[0.2em]
 
     %% Bottom divider
-    \pgfornament[width=2.5in,color=graceprimary]{80}
+    \pgfornament[width=2.8in,color=graceprimary]{80}
 
 \end{center}
 
-\vspace{0.2em}
+\vspace{0.25em}
 
 %% ============================================================
 %% Content in two columns
 %% ============================================================
 
 % Body text size
-\fontsize{10pt}{11.5pt}\selectfont
+\fontsize{14pt}{16.5pt}\selectfont
 
 \begin{multicols}{2}
 \input{content/grace-2}
@@ -139,11 +139,11 @@
 \vfill
 
 \begin{center}
-    \pgfornament[width=2in,color=gold]{80}\\[0.5em]
-    {\fontsize{10pt}{12pt}\selectfont\itshape Composed at Heidelberg}\\[0.2em]
-    {\fontsize{11pt}{13pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
+    \pgfornament[width=2.3in,color=gold]{80}\\[0.7em]
+    {\fontsize{11pt}{14pt}\selectfont\itshape Composed at Heidelberg}\\[0.25em]
+    {\fontsize{12pt}{15pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
 \end{center}
 
-\vspace{0.4in}
+\vspace{0.45in}
 
 \end{document}
