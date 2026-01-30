@@ -1,8 +1,8 @@
-%% poster-grace-3.tex - Poster 2c: Of Man's Redemption (Holy Spirit and Sacraments)
-%% Questions 53-85, Lord's Days XX-XXXI
+%% poster-grace-3.tex - Poster 2c: Of Man's Redemption (Christ's Suffering and Death)
+%% Questions 37-45, Lord's Days XV-XVII
 %% Part 2c of the Heidelberg Catechism
 
-\documentclass[11pt]{extarticle}
+\documentclass[18pt]{extarticle}
 
 %% ============================================================
 %% Page Setup - 18x24" poster
@@ -13,8 +13,8 @@
     paperheight=24in,
     left=1.4in,
     right=1.4in,
-    top=1.1in,
-    bottom=0.85in
+    top=1.5in,
+    bottom=1.2in
 ]{geometry}
 
 %% ============================================================
@@ -49,32 +49,9 @@
 %% Poster-specific typography adjustments
 %% ============================================================
 
-\setstretch{1.0}
-\setlength{\parskip}{0.12em}
-\setlength{\columnsep}{0.4in}
-
-%% Override catechismqa for this poster (smaller due to more content)
-\renewcommand{\catechismqa}[3]{%
-    \setcounter{questionnum}{#1}%
-    \par\vspace*{0.15em}%
-    \nopagebreak[4]%
-    % Question number and bold text
-    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.12em}}%
-    {\fontsize{13pt}{14pt}\selectfont\bfseries #2}%
-    \par\vspace{0.06em}%
-    \nopagebreak[3]%
-    % Answer
-    \noindent #3%
-    \par%
-}
-
-%% Override lordsday for this poster
-\renewcommand{\lordsday}[1]{%
-    \setcounter{lordsdaynum}{#1}%
-    \nopagebreak[4]%
-    {\centering\headerfont\fontsize{12pt}{13pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
-    \nopagebreak[4]%
-}
+\setstretch{1.1}
+\setlength{\parskip}{0.3em}
+\setlength{\columnsep}{0.6in}
 
 %% ============================================================
 %% Document
@@ -91,7 +68,7 @@
 %% ============================================================
 
 \begin{center}
-    \vspace*{0.08in}
+    \vspace*{0.1in}
 
     %% Main Title with drop shadow (Harbour Rough for shadow, Harbour Decor for main)
     \begin{tikzpicture}
@@ -100,26 +77,26 @@
     \end{tikzpicture}\\[0.5em]
 
     %% Part Title
-    {\headerfont\fontsize{26pt}{30pt}\selectfont PART THE SECOND}\\[0.15em]
-    {\headerfont\fontsize{22pt}{26pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.08em]
-    {\fontsize{14pt}{16pt}\selectfont\itshape Holy Spirit and Sacraments}\\[0.25em]
+    {\headerfont\fontsize{32pt}{38pt}\selectfont PART THE SECOND}\\[0.25em]
+    {\headerfont\fontsize{26pt}{32pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
+    {\fontsize{18pt}{22pt}\selectfont\itshape Christ's Suffering and Death}\\[0.35em]
 
     %% Subtitle - centered fleuron with equal-width text boxes
-    {\fontsize{13pt}{15pt}\selectfont\makebox[2.2in][r]{Questions 53--85}\quad\fleuron[graceprimary]\quad\makebox[2.2in][l]{Lord's Days XX--XXXI}}\\[0.15em]
+    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 37--45}\quad\fleuron[graceprimary]\quad\makebox[2.5in][l]{Lord's Days XV--XVII}}\\[0.25em]
 
     %% Bottom divider
-    \pgfornament[width=2.5in,color=graceprimary]{80}
+    \pgfornament[width=3in,color=graceprimary]{80}
 
 \end{center}
 
-\vspace{0.2em}
+\vspace{0.3em}
 
 %% ============================================================
 %% Content in two columns
 %% ============================================================
 
-% Body text size
-\fontsize{11pt}{13pt}\selectfont
+% Body text size (matches Guilt poster)
+\fontsize{20pt}{24pt}\selectfont
 
 \begin{multicols}{2}
 \input{content/grace-3}
@@ -132,11 +109,11 @@
 \vfill
 
 \begin{center}
-    \pgfornament[width=2.2in,color=gold]{80}\\[0.6em]
-    {\fontsize{10pt}{12pt}\selectfont\itshape Composed at Heidelberg}\\[0.2em]
-    {\fontsize{11pt}{13pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
+    \pgfornament[width=2.5in,color=gold]{80}\\[0.8em]
+    {\fontsize{12pt}{16pt}\selectfont\itshape Composed at Heidelberg}\\[0.3em]
+    {\fontsize{14pt}{18pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
 \end{center}
 
-\vspace{0.4in}
+\vspace{0.5in}
 
 \end{document}
