@@ -1,5 +1,5 @@
-%% poster-gratitude-2.tex - Poster 3b: Of Thankfulness (The Law and Prayer)
-%% Questions 108-129, Lord's Days XLI-LII
+%% poster-gratitude-2.tex - Poster 3b: Of Thankfulness (The Law Continued)
+%% Questions 96-107, Lord's Days XXXV-XL
 %% Part 3b of the Heidelberg Catechism
 
 \documentclass[18pt]{extarticle}
@@ -49,32 +49,9 @@
 %% Poster-specific typography adjustments
 %% ============================================================
 
-\setstretch{1.0}
-\setlength{\parskip}{0.2em}
-\setlength{\columnsep}{0.5in}
-
-%% Override catechismqa for this poster (tighter for more content)
-\renewcommand{\catechismqa}[3]{%
-    \setcounter{questionnum}{#1}%
-    \par\vspace*{0.2em}%
-    \nopagebreak[4]%
-    % Question number and bold text
-    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.2em}}%
-    {\fontsize{16pt}{18pt}\selectfont\bfseries #2}%
-    \par\vspace{0.08em}%
-    \nopagebreak[3]%
-    % Answer
-    \noindent #3%
-    \par%
-}
-
-%% Override lordsday for this poster
-\renewcommand{\lordsday}[1]{%
-    \setcounter{lordsdaynum}{#1}%
-    \nopagebreak[4]%
-    {\centering\headerfont\fontsize{14pt}{16pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
-    \nopagebreak[4]%
-}
+\setstretch{1.1}
+\setlength{\parskip}{0.3em}
+\setlength{\columnsep}{0.6in}
 
 %% ============================================================
 %% Document
@@ -102,10 +79,10 @@
     %% Part Title
     {\headerfont\fontsize{32pt}{38pt}\selectfont PART THE THIRD}\\[0.25em]
     {\headerfont\fontsize{26pt}{32pt}\selectfont\color{gratitudeprimary} Of Thankfulness}\\[0.1em]
-    {\fontsize{18pt}{22pt}\selectfont\itshape The Law and Prayer}\\[0.35em]
+    {\fontsize{18pt}{22pt}\selectfont\itshape The Law Continued}\\[0.35em]
 
     %% Subtitle - centered fleuron with equal-width text boxes
-    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 108--129}\quad\fleuron[gratitudeprimary]\quad\makebox[2.5in][l]{Lord's Days XLI--LII}}\\[0.25em]
+    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 96--107}\quad\fleuron[gratitudeprimary]\quad\makebox[2.5in][l]{Lord's Days XXXV--XL}}\\[0.25em]
 
     %% Bottom divider
     \pgfornament[width=3in,color=gratitudeprimary]{80}
@@ -118,8 +95,8 @@
 %% Content in two columns
 %% ============================================================
 
-% Body text size (slightly smaller due to content volume)
-\fontsize{15pt}{18pt}\selectfont
+% Body text size (matches other posters)
+\fontsize{20pt}{24pt}\selectfont
 
 \begin{multicols}{2}
 \input{content/gratitude-2}
