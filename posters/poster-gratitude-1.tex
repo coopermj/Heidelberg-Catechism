@@ -1,0 +1,149 @@
+%% poster-gratitude-1.tex - Poster 3a: Of Thankfulness (Good Works and The Law)
+%% Questions 86-107, Lord's Days XXXII-XL
+%% Part 3a of the Heidelberg Catechism
+
+\documentclass[14pt]{extarticle}
+
+%% ============================================================
+%% Page Setup - 18x24" poster
+%% ============================================================
+
+\usepackage[
+    paperwidth=18in,
+    paperheight=24in,
+    left=1.3in,
+    right=1.3in,
+    top=1.3in,
+    bottom=1.0in
+]{geometry}
+
+%% ============================================================
+%% Core Packages
+%% ============================================================
+
+\usepackage{fontspec}
+\usepackage{lettrine}
+\usepackage{tikz}
+\usepackage{pgfornament}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{multicol}
+
+%% ============================================================
+%% Custom Style Packages (paths relative to compilation directory)
+%% ============================================================
+
+\usepackage{styles/colors}
+\usepackage{styles/typography}
+\usepackage{styles/ornamental-borders}
+
+%% ============================================================
+%% Page Background
+%% ============================================================
+
+\pagecolor{parchment}
+\color{inkblack}
+
+%% ============================================================
+%% Poster-specific typography adjustments
+%% ============================================================
+
+\setstretch{1.05}
+\setlength{\parskip}{0.2em}
+\setlength{\columnsep}{0.5in}
+
+%% Override catechismqa for this poster
+\renewcommand{\catechismqa}[3]{%
+    \setcounter{questionnum}{#1}%
+    \par\vspace*{0.25em}%
+    \nopagebreak[4]%
+    % Question number and bold text
+    \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.2em}}%
+    {\fontsize{17pt}{19pt}\selectfont\bfseries #2}%
+    \par\vspace{0.1em}%
+    \nopagebreak[3]%
+    % Answer
+    \noindent #3%
+    \par%
+}
+
+%% Override lordsday for this poster
+\renewcommand{\lordsday}[1]{%
+    \setcounter{lordsdaynum}{#1}%
+    \nopagebreak[4]%
+    {\centering\headerfont\fontsize{15pt}{17pt}\selectfont Lord's Day \Roman{lordsdaynum}\par}%
+    \nopagebreak[4]%
+}
+
+%% ============================================================
+%% Document
+%% ============================================================
+
+\begin{document}
+\thispagestyle{empty}
+
+%% Draw ornamental border in forest green (Gratitude section color)
+\illuminatedborder[gratitudeprimary]
+
+%% ============================================================
+%% Title Block
+%% ============================================================
+
+\begin{center}
+    \vspace*{0.08in}
+
+    %% Main Title with drop shadow
+    \begin{tikzpicture}
+        \node[opacity=0.25] at (0.04in,-0.04in) {\titleshadowfont\fontsize{70pt}{76pt}\selectfont The Heidelberg};
+        \node at (0,0) {\titlefont\fontsize{70pt}{76pt}\selectfont The Heidelberg};
+    \end{tikzpicture}\\[0.1em]
+    \begin{tikzpicture}
+        \node[opacity=0.25] at (0.04in,-0.04in) {\titleshadowfont\fontsize{70pt}{76pt}\selectfont Catechism};
+        \node at (0,0) {\titlefont\fontsize{70pt}{76pt}\selectfont Catechism};
+    \end{tikzpicture}\\[0.3em]
+
+    %% Decorative divider
+    \pgfornament[width=4.3in,color=gold]{75}\\[0.3em]
+
+    %% Part Title
+    {\headerfont\fontsize{26pt}{30pt}\selectfont PART THE THIRD}\\[0.15em]
+    {\headerfont\fontsize{22pt}{26pt}\selectfont\color{gratitudeprimary} Of Thankfulness}\\[0.08em]
+    {\fontsize{14pt}{16pt}\selectfont\itshape Good Works and The Law}\\[0.25em]
+
+    %% Subtitle - centered fleuron with equal-width text boxes
+    {\fontsize{13pt}{15pt}\selectfont\makebox[2.2in][r]{Questions 86--107}\quad\fleuron[gratitudeprimary]\quad\makebox[2.2in][l]{Lord's Days XXXII--XL}}\\[0.15em]
+
+    %% Bottom divider
+    \pgfornament[width=2.5in,color=gratitudeprimary]{80}
+
+\end{center}
+
+\vspace{0.2em}
+
+%% ============================================================
+%% Content in two columns
+%% ============================================================
+
+% Body text size
+\fontsize{14pt}{16.5pt}\selectfont
+
+\begin{multicols}{2}
+\input{content/gratitude-1}
+\end{multicols}
+
+%% ============================================================
+%% Footer
+%% ============================================================
+
+\vfill
+
+\begin{center}
+    \pgfornament[width=2.2in,color=gold]{80}\\[0.6em]
+    {\fontsize{10pt}{12pt}\selectfont\itshape Composed at Heidelberg}\\[0.2em]
+    {\fontsize{11pt}{13pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
+\end{center}
+
+\vspace{0.4in}
+
+\end{document}
