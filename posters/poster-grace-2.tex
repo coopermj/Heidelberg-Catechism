@@ -11,8 +11,8 @@
 \usepackage[
     paperwidth=18in,
     paperheight=24in,
-    left=1.3in,
-    right=1.3in,
+    left=1.4in,
+    right=1.4in,
     top=1.3in,
     bottom=1.0in
 ]{geometry}
@@ -93,18 +93,11 @@
 \begin{center}
     \vspace*{0.1in}
 
-    %% Main Title with drop shadow
+    %% Main Title with drop shadow (Harbour Rough for shadow, Harbour Decor for main)
     \begin{tikzpicture}
-        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{76pt}{84pt}\selectfont The Heidelberg};
-        \node at (0,0) {\titlefont\fontsize{76pt}{84pt}\selectfont The Heidelberg};
-    \end{tikzpicture}\\[0.12em]
-    \begin{tikzpicture}
-        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{76pt}{84pt}\selectfont Catechism};
-        \node at (0,0) {\titlefont\fontsize{76pt}{84pt}\selectfont Catechism};
-    \end{tikzpicture}\\[0.35em]
-
-    %% Decorative divider
-    \pgfornament[width=4.5in,color=gold]{75}\\[0.35em]
+        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{64pt}{70pt}\selectfont The Heidelberg Catechism};
+        \node at (0,0) {\titlefont\fontsize{64pt}{70pt}\selectfont The Heidelberg Catechism};
+    \end{tikzpicture}\\[0.5em]
 
     %% Part Title
     {\headerfont\fontsize{28pt}{34pt}\selectfont PART THE SECOND}\\[0.2em]
