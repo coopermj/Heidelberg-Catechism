@@ -7,7 +7,7 @@ LATEXFLAGS = -interaction=nonstopmode -output-directory=output
 POSTERS = poster-guilt poster-grace-1 poster-grace-2 poster-grace-3 poster-grace-4 poster-grace-5 poster-grace-6 poster-grace-7 poster-gratitude-1 poster-gratitude-2 poster-gratitude-3 poster-gratitude-4
 OUTPUTS = $(addprefix output/,$(addsuffix .pdf,$(POSTERS)))
 
-.PHONY: all clean guilt grace grace-1 grace-2 grace-3 grace-4 grace-5 grace-6 grace-7 gratitude gratitude-1 gratitude-2 gratitude-3 gratitude-4 setup
+.PHONY: all clean guilt grace grace-1 grace-2 grace-3 grace-4 grace-5 grace-6 grace-7 gratitude gratitude-1 gratitude-2 gratitude-3 gratitude-4 setup experiments large
 
 # Default target: build all posters
 all: setup $(OUTPUTS)
@@ -91,6 +91,69 @@ output/poster-gratitude-3.pdf: posters/poster-gratitude-3.tex content/gratitude-
 output/poster-gratitude-4.pdf: posters/poster-gratitude-4.tex content/gratitude-4.tex styles/*.sty
 	$(LATEX) $(LATEXFLAGS) posters/poster-gratitude-4.tex
 	$(LATEX) $(LATEXFLAGS) posters/poster-gratitude-4.tex
+
+# ============================================================
+# Experimental Part Title Typography Versions
+# ============================================================
+
+experiments: setup output/poster-guilt-v1-harbour.pdf output/poster-guilt-v2-greatvibes.pdf output/poster-guilt-v3-alexbrush.pdf output/poster-guilt-v4-titlecase.pdf output/poster-guilt-v5-frizquadrata.pdf
+
+output/poster-guilt-v1-harbour.pdf: posters/experiments/poster-guilt-v1-harbour.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v1-harbour.tex
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v1-harbour.tex
+
+output/poster-guilt-v2-greatvibes.pdf: posters/experiments/poster-guilt-v2-greatvibes.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v2-greatvibes.tex
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v2-greatvibes.tex
+
+output/poster-guilt-v3-alexbrush.pdf: posters/experiments/poster-guilt-v3-alexbrush.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v3-alexbrush.tex
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v3-alexbrush.tex
+
+output/poster-guilt-v4-titlecase.pdf: posters/experiments/poster-guilt-v4-titlecase.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v4-titlecase.tex
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v4-titlecase.tex
+
+output/poster-guilt-v5-frizquadrata.pdf: posters/experiments/poster-guilt-v5-frizquadrata.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v5-frizquadrata.tex
+	$(LATEX) $(LATEXFLAGS) posters/experiments/poster-guilt-v5-frizquadrata.tex
+
+# ============================================================
+# 24x36" Large Format Posters (Consolidated - 6 posters total)
+# ============================================================
+
+LARGE_POSTERS = poster-guilt-24x36 poster-grace-a-24x36 poster-grace-b-24x36 poster-grace-c-24x36 poster-grace-d-24x36 poster-gratitude-a-24x36 poster-gratitude-b-24x36
+LARGE_OUTPUTS = $(addprefix output/,$(addsuffix .pdf,$(LARGE_POSTERS)))
+
+large: setup $(LARGE_OUTPUTS)
+
+output/poster-guilt-24x36.pdf: posters/large/poster-guilt-24x36.tex content/guilt.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-guilt-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-guilt-24x36.tex
+
+output/poster-grace-a-24x36.pdf: posters/large/poster-grace-a-24x36.tex content/grace-1.tex content/grace-2.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-a-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-a-24x36.tex
+
+output/poster-grace-b-24x36.pdf: posters/large/poster-grace-b-24x36.tex content/grace-3.tex content/grace-4.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-b-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-b-24x36.tex
+
+output/poster-grace-c-24x36.pdf: posters/large/poster-grace-c-24x36.tex content/grace-5.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-c-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-c-24x36.tex
+
+output/poster-grace-d-24x36.pdf: posters/large/poster-grace-d-24x36.tex content/grace-6.tex content/grace-7.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-d-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-grace-d-24x36.tex
+
+output/poster-gratitude-a-24x36.pdf: posters/large/poster-gratitude-a-24x36.tex content/gratitude-1.tex content/gratitude-2.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-gratitude-a-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-gratitude-a-24x36.tex
+
+output/poster-gratitude-b-24x36.pdf: posters/large/poster-gratitude-b-24x36.tex content/gratitude-3.tex content/gratitude-4.tex styles/*.sty
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-gratitude-b-24x36.tex
+	$(LATEX) $(LATEXFLAGS) posters/large/poster-gratitude-b-24x36.tex
 
 # Clean auxiliary files
 clean:

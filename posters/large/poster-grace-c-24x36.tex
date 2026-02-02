@@ -1,20 +1,20 @@
-%% poster-grace-1.tex - Poster 2a: Of Man's Redemption (The Mediator)
-%% Questions 12-23, Lord's Days V-VII
-%% Part 2a of the Heidelberg Catechism
+%% poster-grace-c-24x36.tex - Large Format Poster 2c: Of Man's Redemption
+%% Questions 50-68, Lord's Days XIX-XXV (19 questions)
+%% 24x36" format
 
 \documentclass[18pt]{extarticle}
 
 %% ============================================================
-%% Page Setup - 18x24" poster
+%% Page Setup - 24x36" poster
 %% ============================================================
 
 \usepackage[
-    paperwidth=18in,
-    paperheight=24in,
-    left=1.4in,
-    right=1.4in,
-    top=1.5in,
-    bottom=1.2in
+    paperwidth=24in,
+    paperheight=36in,
+    left=1.2in,
+    right=1.2in,
+    top=1.3in,
+    bottom=1.1in
 ]{geometry}
 
 %% ============================================================
@@ -49,9 +49,10 @@
 %% Poster-specific typography adjustments
 %% ============================================================
 
-\setstretch{1.1}
-\setlength{\parskip}{0.3em}
-\setlength{\columnsep}{0.6in}
+\setstretch{0.85}
+\setlength{\parskip}{0.05em}
+\setlength{\columnseprule}{0pt}
+\setlength{\columnsep}{0.5in}
 
 %% ============================================================
 %% Document
@@ -61,7 +62,7 @@
 \thispagestyle{empty}
 
 %% Draw ornamental border in ultramarine (Grace section color)
-\illuminatedborder[graceprimary]
+\illuminatedborderlarge[graceprimary]
 
 %% ============================================================
 %% Title Block
@@ -70,22 +71,22 @@
 \begin{center}
     \vspace*{0.1in}
 
-    %% Main Title with drop shadow (Harbour Rough for shadow, Harbour Decor for main)
+    %% Main Title with drop shadow
     \begin{tikzpicture}
-        \node[opacity=0.25] at (0.05in,-0.05in) {\titleshadowfont\fontsize{64pt}{70pt}\selectfont The Heidelberg Catechism};
-        \node at (0,0) {\titlefont\fontsize{64pt}{70pt}\selectfont The Heidelberg Catechism};
+        \node[opacity=0.25] at (0.07in,-0.07in) {\titleshadowfont\fontsize{85pt}{94pt}\selectfont The Heidelberg Catechism};
+        \node at (0,0) {\titlefont\fontsize{85pt}{94pt}\selectfont The Heidelberg Catechism};
     \end{tikzpicture}\\[0.5em]
 
     %% Part Title
-    {\titlefont\fontsize{32pt}{38pt}\selectfont Part the Second}\\[0.25em]
-    {\headerfont\fontsize{26pt}{32pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
-    {\fontsize{18pt}{22pt}\selectfont\itshape The Mediator}\\[0.35em]
+    {\titlefont\fontsize{43pt}{50pt}\selectfont Part the Second}\\[0.25em]
+    {\headerfont\fontsize{35pt}{42pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
+    {\fontsize{22pt}{27pt}\selectfont\itshape The Spirit, Church, and Sacraments}\\[0.4em]
 
     %% Subtitle - centered fleuron with equal-width text boxes
-    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 12--23}\quad\fleuron[graceprimary]\quad\makebox[2.5in][l]{Lord's Days V--VII}}\\[0.25em]
+    {\fontsize{21pt}{26pt}\selectfont\makebox[3.3in][r]{Questions 50--68}\quad\fleuron[graceprimary]\quad\makebox[3.3in][l]{Lord's Days XIX--XXV}}\\[0.25em]
 
     %% Bottom divider
-    \pgfornament[width=3in,color=graceprimary]{80}
+    \pgfornament[width=4in,color=graceprimary]{80}
 
 \end{center}
 
@@ -95,11 +96,10 @@
 %% Content in two columns
 %% ============================================================
 
-% Body text size (matches Guilt poster)
-\fontsize{20pt}{24pt}\selectfont
+\fontsize{27pt}{32pt}\selectfont
 
 \begin{multicols}{2}
-\input{content/grace-1}
+\input{content/grace-part-c}
 \end{multicols}
 
 %% ============================================================
@@ -109,11 +109,11 @@
 \vfill
 
 \begin{center}
-    \pgfornament[width=2.5in,color=gold]{80}\\[0.8em]
-    {\fontsize{12pt}{16pt}\selectfont\itshape Composed at Heidelberg}\\[0.3em]
-    {\fontsize{14pt}{18pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
+    \pgfornament[width=3.3in,color=gold]{80}\\[0.5em]
+    {\fontsize{16pt}{21pt}\selectfont\itshape Composed at Heidelberg}\\[0.25em]
+    {\fontsize{19pt}{24pt}\selectfont\headerfont ANNO DOMINI MDLXIII}
 \end{center}
 
-\vspace{0.5in}
+\vspace{0.7in}
 
 \end{document}

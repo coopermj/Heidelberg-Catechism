@@ -1,6 +1,6 @@
-%% poster-grace-1.tex - Poster 2a: Of Man's Redemption (The Mediator)
-%% Questions 12-23, Lord's Days V-VII
-%% Part 2a of the Heidelberg Catechism
+%% poster-guilt-v1-harbour.tex - Experiment: Part title in Harbour Decor
+%% Version 1: Title font matching main title
+%% Questions 1-11, Lord's Days I-IV
 
 \documentclass[18pt]{extarticle}
 
@@ -60,8 +60,8 @@
 \begin{document}
 \thispagestyle{empty}
 
-%% Draw ornamental border in ultramarine (Grace section color)
-\illuminatedborder[graceprimary]
+%% Draw ornamental border in burgundy (Guilt section color)
+\illuminatedborder[guiltprimary]
 
 %% ============================================================
 %% Title Block
@@ -76,16 +76,15 @@
         \node at (0,0) {\titlefont\fontsize{64pt}{70pt}\selectfont The Heidelberg Catechism};
     \end{tikzpicture}\\[0.5em]
 
-    %% Part Title
-    {\titlefont\fontsize{32pt}{38pt}\selectfont Part the Second}\\[0.25em]
-    {\headerfont\fontsize{26pt}{32pt}\selectfont\color{graceprimary} Of Man's Redemption}\\[0.1em]
-    {\fontsize{18pt}{22pt}\selectfont\itshape The Mediator}\\[0.35em]
+    %% Part Title - VERSION 1: Harbour Decor (same as main title)
+    {\titlefont\fontsize{32pt}{38pt}\selectfont Part the First}\\[0.25em]
+    {\headerfont\fontsize{26pt}{32pt}\selectfont\color{guiltprimary} Of Man's Misery}\\[0.35em]
 
     %% Subtitle - centered fleuron with equal-width text boxes
-    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 12--23}\quad\fleuron[graceprimary]\quad\makebox[2.5in][l]{Lord's Days V--VII}}\\[0.25em]
+    {\fontsize{16pt}{20pt}\selectfont\makebox[2.5in][r]{Questions 1--11}\quad\fleuron[guiltprimary]\quad\makebox[2.5in][l]{Lord's Days I--IV}}\\[0.25em]
 
     %% Bottom divider
-    \pgfornament[width=3in,color=graceprimary]{80}
+    \pgfornament[width=3in,color=guiltprimary]{80}
 
 \end{center}
 
@@ -95,11 +94,11 @@
 %% Content in two columns
 %% ============================================================
 
-% Body text size (matches Guilt poster)
+% Increase body text size (18pt -> 20pt)
 \fontsize{20pt}{24pt}\selectfont
 
 \begin{multicols}{2}
-\input{content/grace-1}
+\input{content/guilt}
 \end{multicols}
 
 %% ============================================================

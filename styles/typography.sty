@@ -142,14 +142,16 @@
 \newcommand{\catechismqa}[3]{%
     \setcounter{questionnum}{#1}%
     \par\vspace*{0.35em}%
+    \begin{samepage}%
     \nopagebreak[4]%
     % Question number and bold text, 4pt larger than body
     \noindent{\textcolor{gold}{\bfseries #1.}\hspace{0.3em}}%
     {\fontsize{24pt}{28pt}\selectfont\bfseries #2}%
     \par\vspace{0.15em}%
-    \nopagebreak[3]%
+    \nopagebreak[4]%
     % Answer
     \noindent #3%
+    \end{samepage}%
     \par%
 }
 

@@ -55,6 +55,82 @@
 }
 
 %% ============================================================
+%% Large Format Border (no side lines)
+%% ============================================================
+
+% Border without vertical side lines - for large format posters
+% Usage: \illuminatedborderlarge[color]
+\newcommand{\illuminatedborderlarge}[1][gold]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Calculate border coordinates with inset from page edges
+        \coordinate (bordertopleft) at ($(current page.north west) + (0.6in,-0.6in)$);
+        \coordinate (borderbotright) at ($(current page.south east) + (-0.6in,0.6in)$);
+        \coordinate (bordertopright) at ($(current page.north east) + (-0.6in,-0.6in)$);
+        \coordinate (borderbotleft) at ($(current page.south west) + (0.6in,0.6in)$);
+
+        % Corner ornaments (pgfornament 61 is an elegant corner piece)
+        % Top-left corner
+        \node[anchor=north west] at (bordertopleft)
+            {\pgfornament[width=1.8in,color=#1]{61}};
+        % Top-right corner (vertical mirror)
+        \node[anchor=north east] at (bordertopright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=v]{61}};
+        % Bottom-left corner (horizontal mirror)
+        \node[anchor=south west] at (borderbotleft)
+            {\pgfornament[width=1.8in,color=#1,symmetry=h]{61}};
+        % Bottom-right corner (central/both mirror)
+        \node[anchor=south east] at (borderbotright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=c]{61}};
+
+        % Top border ornament (centered)
+        \node at ($(bordertopleft)!0.5!(bordertopright) + (0,-0.3in)$)
+            {\pgfornament[width=5in,color=#1]{75}};
+
+        % Bottom border ornament (centered)
+        \node at ($(borderbotleft)!0.5!(borderbotright) + (0,0.3in)$)
+            {\pgfornament[width=5in,color=#1]{75}};
+
+        % No side decorative lines
+    \end{tikzpicture}%
+}
+
+%% ============================================================
+%% Large Format Border (no bottom ornament)
+%% ============================================================
+
+% Border without bottom ornament - for dense content posters
+% Usage: \illuminatedborderlargenobottom[color]
+\newcommand{\illuminatedborderlargenobottom}[1][gold]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Calculate border coordinates with inset from page edges
+        \coordinate (bordertopleft) at ($(current page.north west) + (0.6in,-0.6in)$);
+        \coordinate (borderbotright) at ($(current page.south east) + (-0.6in,0.6in)$);
+        \coordinate (bordertopright) at ($(current page.north east) + (-0.6in,-0.6in)$);
+        \coordinate (borderbotleft) at ($(current page.south west) + (0.6in,0.6in)$);
+
+        % Corner ornaments (pgfornament 61 is an elegant corner piece)
+        % Top-left corner
+        \node[anchor=north west] at (bordertopleft)
+            {\pgfornament[width=1.8in,color=#1]{61}};
+        % Top-right corner (vertical mirror)
+        \node[anchor=north east] at (bordertopright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=v]{61}};
+        % Bottom-left corner (horizontal mirror)
+        \node[anchor=south west] at (borderbotleft)
+            {\pgfornament[width=1.8in,color=#1,symmetry=h]{61}};
+        % Bottom-right corner (central/both mirror)
+        \node[anchor=south east] at (borderbotright)
+            {\pgfornament[width=1.8in,color=#1,symmetry=c]{61}};
+
+        % Top border ornament (centered)
+        \node at ($(bordertopleft)!0.5!(bordertopright) + (0,-0.3in)$)
+            {\pgfornament[width=5in,color=#1]{75}};
+
+        % No bottom border ornament
+    \end{tikzpicture}%
+}
+
+%% ============================================================
 %% Alternative Border Styles
 %% ============================================================
 
